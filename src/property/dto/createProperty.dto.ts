@@ -11,4 +11,8 @@ export class createPropertyDto {
   @IsInt()
   @IsPositive()
   area: number;
+
+  @IsInt()
+  @IsPositive()
+  price:number;
 }

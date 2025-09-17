@@ -1,0 +1,1 @@
+export const DEFAULTPAGESIZE = 10;

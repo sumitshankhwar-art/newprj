@@ -1,6 +1,11 @@
 import { Module, ValidationPipe } from '@nestjs/common';
 import { PropertyController } from './property.controller';
 import { APP_PIPE } from '@nestjs/core';
+import { PropertyService } from './property.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Property } from 'src/entities/property.entity';
+import { PropertyFeature } from 'src/entities/propertyFeature.entity';
+import { User } from 'src/entities/user.entity';
 
 @Module({
   controllers: [PropertyController],
@@ -16,6 +21,9 @@ import { APP_PIPE } from '@nestjs/core';
         },
       }),
     },
+    PropertyService,
   ],
+  imports: [TypeOrmModule.forFeature([Property,PropertyFeature,User])]
+
 })
 export class PropertyModule {}
