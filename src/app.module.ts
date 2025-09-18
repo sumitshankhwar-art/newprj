@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { pgConfig } from 'dbconfig';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 import dbconfig from './config/dbconfig';
 
 @Module({
@@ -16,7 +17,7 @@ import dbconfig from './config/dbconfig';
     }),
     PropertyModule,TypeOrmModule.forRootAsync({
       useFactory:dbconfig}
-    ), UserModule,
+    ), UserModule, AuthModule,
 
   ],
   controllers: [AppController],
